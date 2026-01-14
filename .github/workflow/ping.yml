@@ -1,0 +1,14 @@
+name: Keep Koyeb App Alive
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # ping mỗi 5 phút
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Koyeb App
+        run: |
+          curl -L --max-time 20 https://vulnerable-margarethe-trung-hieu-b92ec7c6.koyeb.app/
